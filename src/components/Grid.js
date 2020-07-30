@@ -10,11 +10,17 @@ const Grid = () => {
         return <path d={`M ${x},10 L ${x},800`} fill="none" stroke="#AADDEE" strokeWidth="2" key={"verticalGridLine" + x} />;
     }
 
+    const Line = (xStart, yStart, xEnd, yEnd, color) => {
+        return (
+            <path d={`M ${xStart},${yStart} L ${xEnd},${yEnd}`} fill="none" stroke={color} strokeWidth="5" key={"line_" + xStart + "," + yStart + "_" + xEnd + "," + yEnd} />
+        );
+    }
+
     const xAxis = (y) => {
         return (
             <>
                 <polygon points={`0,${y} 10,${y + 10} 10,${y - 10}`} fill="#99CCDD" />
-                <path d={`M 10,${y} L 800,${y}`} fill="none" stroke="#99CCDD" strokeWidth="5" key="xAxis" />
+                {Line(10, y, 800, y, "#99CCDD")}
                 <polygon points={`800,${y} 790,${y + 10} 790,${y - 10}`} fill="#99CCDD" />
             </>
         );
@@ -24,7 +30,7 @@ const Grid = () => {
         return (
             <>
                 <polygon points={`${x},0 ${x + 10},10 ${x - 10},10`} fill="#99CCDD" />
-                <path d={`M ${x},10 L ${x},800`} fill="none" stroke="#99CCDD" strokeWidth="5" key="yAxis" />
+                {Line(x, 10, x, 800, "#99CCDD")}
                 <polygon points={`${x},800 ${x + 10},790 ${x - 10},790`} fill="#99CCDD" />
             </>
         );
