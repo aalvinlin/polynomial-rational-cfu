@@ -19,6 +19,7 @@ const Grid = () => {
     const LineWithArrows = ({xStart, yStart, xEnd, yEnd, color}) => {
 
         const slope = (yEnd - yStart) / (xEnd - xStart);
+        const angle = Math.atan(slope);
 
         // swap left and right points if needed so that (xEnd, yEnd) is on the right
         if (xEnd < xStart)
@@ -32,12 +33,33 @@ const Grid = () => {
                 xEnd = xTemp;
                 yEnd = yTemp;
             }
+        
+        const arrowWidth = 10;
+        const arrowLength = arrowWidth * 2;
+        
+        const rightArrowTipX = xEnd + arrowLength * Math.cos(angle);
+        const rightArrowTipY = yEnd + arrowLength * Math.sin(angle);
+
+        const rightArrowBaseAngle1X = xEnd + arrowWidth * Math.cos(angle + Math.PI / 2);
+        const rightArrowBaseAngle1Y = yEnd + arrowWidth * Math.sin(angle + Math.PI / 2);
+
+        const rightArrowBaseAngle2X = xEnd - arrowWidth * Math.cos(angle + Math.PI / 2);
+        const rightArrowBaseAngle2Y = yEnd - arrowWidth * Math.sin(angle + Math.PI / 2);
+
+        const leftArrowTipX = xStart - arrowLength * Math.cos(angle);
+        const leftArrowTipY = yStart - arrowLength * Math.sin(angle);
+
+        const leftArrowBaseAngle1X = xStart + arrowWidth * Math.cos(angle + Math.PI / 2);
+        const leftArrowBaseAngle1Y = yStart + arrowWidth * Math.sin(angle + Math.PI / 2);
+
+        const leftArrowBaseAngle2X = xStart - arrowWidth * Math.cos(angle + Math.PI / 2);
+        const leftArrowBaseAngle2Y = yStart - arrowWidth * Math.sin(angle + Math.PI / 2);
 
         return (
             <>
-                <polygon points={`${xStart},${yStart} ${xStart + 10},${yStart + 10} ${xStart + 10},${yStart - 10}`} fill={color} />
+                <polygon points={`${leftArrowTipX},${leftArrowTipY} ${leftArrowBaseAngle1X},${leftArrowBaseAngle1Y} ${leftArrowBaseAngle2X},${leftArrowBaseAngle2Y}`} fill={color} />
                 <Line xStart={xStart} yStart={yStart} xEnd={xEnd} yEnd={yEnd} color={color} />;
-                <polygon points={`${xEnd},${yEnd} ${xEnd - 10},${yEnd + 10} ${xEnd - 10},${yEnd - 10}`} fill={color} />
+                <polygon points={`${rightArrowTipX},${rightArrowTipY} ${rightArrowBaseAngle1X},${rightArrowBaseAngle1Y} ${rightArrowBaseAngle2X},${rightArrowBaseAngle2Y}`} fill={color} />
             </>
         );
     }
