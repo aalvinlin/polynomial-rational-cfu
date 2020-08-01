@@ -65,11 +65,11 @@ const Grid = () => {
     }
 
     const xAxis = (y) => {
-        return <LineWithArrows xStart="0" yStart={y} xEnd="800" yEnd={y} color="#99CCDD" />;
+        return <LineWithArrows xStart={0} yStart={y} xEnd={800} yEnd={y} color="#99CCDD" />;
     }
 
     const yAxis = (x) => {
-        return <LineWithArrows xStart={x} yStart="0" xEnd={x} yEnd="800" color="#99CCDD" />;
+        return <LineWithArrows xStart={x} yStart={0} xEnd={x} yEnd={800} color="#99CCDD" />;
     }
 
     // convert from grid coordinates to actual SVG coordinates!
