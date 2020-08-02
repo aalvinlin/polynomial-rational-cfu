@@ -5,8 +5,15 @@ const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding
     const gridLineColor = "#AADDEE";
     const axisColor = "#99CCDD";
 
-    const totalHorizontalGridLines = Math.floor((yMax - verticalPadding) / verticalSpacing) + 1;
-    const totalVerticalGridLines = Math.floor((xMax - horizontalPadding) / horizontalSpacing) + 1;
+    let totalHorizontalGridLines = Math.floor((yMax - verticalPadding) / verticalSpacing) + 1;
+    let totalVerticalGridLines = Math.floor((xMax - horizontalPadding) / horizontalSpacing) + 1;
+
+    // center axes on grid; don't allow different numbers of squares to the left and to the right of the y-axis
+    if (totalHorizontalGridLines % 2 === 0)
+        { totalHorizontalGridLines -= 1; }
+    
+    if (totalVerticalGridLines % 2 === 0)
+        { totalVerticalGridLines -= 1; }
 
     const horizontalLineEnd = horizontalPadding + (totalHorizontalGridLines - 1) * horizontalSpacing;
     const verticalLineEnd = verticalPadding + (totalVerticalGridLines - 1) * verticalSpacing;
