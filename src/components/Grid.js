@@ -154,8 +154,9 @@ const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding
                 xStart = originX + xStart * horizontalSpacing;
                 xEnd = originX + xEnd * horizontalSpacing;
 
-                yStart = originY + yStart * verticalSpacing;
-                yEnd = originY + yEnd * verticalSpacing;
+                // subtract because y-coordinates grow downwards in SVG
+                yStart = originY - yStart * verticalSpacing;
+                yEnd = originY - yEnd * verticalSpacing;
 
                 return <LineWithArrows xStart={xStart} yStart={yStart} xEnd={xEnd} yEnd={yEnd} color="#CC6699" key={"curvedFunctionPart_" + xStart + "_" + yStart + "_" + xEnd + "_" + yEnd} />;
             })}
