@@ -113,7 +113,7 @@ const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding
 
         const horizontalOffset = originX + x * horizontalSpacing;
 
-        return <AsymptoteLine xStart={horizontalOffset} yStart={verticalPadding} xEnd={horizontalOffset} yEnd={verticalLineEnd} color={"#999999"} strokeDasharray={"20, 10"} width={7} />;
+        return <AsymptoteLine xStart={horizontalOffset} yStart={verticalPadding} xEnd={horizontalOffset} yEnd={verticalLineEnd} />;
     }
     
     const HorizontalOrObliqueAsymptote = ({equation}) => {
@@ -125,7 +125,7 @@ const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding
             {
                 const verticalOffset = originY - yIntercept * verticalSpacing;
 
-                return <AsymptoteLine xStart={horizontalPadding} yStart={verticalOffset} xEnd={horizontalLineEnd} yEnd={verticalOffset} color={"#999999"} strokeDasharray={"20, 10"} width={7} />;
+                return <AsymptoteLine xStart={horizontalPadding} yStart={verticalOffset} xEnd={horizontalLineEnd} yEnd={verticalOffset} />;
             }
         
         // oblique asymptote
@@ -154,7 +154,7 @@ const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding
                         xEnd = originX + (yMinValue / slope) * horizontalSpacing;
                     }
                 
-                return <AsymptoteLine xStart={xStart} yStart={yStart} xEnd={xEnd} yEnd={yEnd} color={"#999999"} strokeDasharray={"20, 10"} width={7} />;
+                return <AsymptoteLine xStart={xStart} yStart={yStart} xEnd={xEnd} yEnd={yEnd} />;
             }
     }
 
