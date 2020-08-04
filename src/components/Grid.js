@@ -1,6 +1,6 @@
 import React from "react";
 
-const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding, verticalPadding}) => {
+const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding, verticalPadding, verticalAsymptotes, horizontalAsymptotes, obliqueAsymptotes, curvedFunctionParts}) => {
 
     const gridLineColor = "#AADDEE";
     const axisColor = "#99CCDD";
@@ -17,6 +17,13 @@ const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding
 
     const horizontalLineEnd = horizontalPadding + (totalHorizontalGridLines - 1) * horizontalSpacing;
     const verticalLineEnd = verticalPadding + (totalVerticalGridLines - 1) * verticalSpacing;
+
+    const originX = horizontalPadding + (totalHorizontalGridLines - 1) / 2 * horizontalSpacing;
+    const originY = verticalPadding + (totalVerticalGridLines - 1) / 2 * verticalSpacing;
+
+    console.log(origin);
+
+
 
     const HorizontalGridLine = ({y}) => {
         return <Line xStart={horizontalPadding} yStart={y} xEnd={horizontalLineEnd} yEnd={y} color={gridLineColor} width={2} />;
@@ -105,10 +112,31 @@ const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding
             <XAxis />
             <YAxis />
 
-            <LineWithArrows xStart={50} yStart={20} xEnd={300} yEnd={350} color="#CC6699" />;
+            {curvedFunctionParts.map(partData => {
+                
+                // user-specified coordinates
+                let [xStart, yStart, xEnd, yEnd] = partData;
+
+                console.log(xStart, yStart, xEnd, yEnd, "user coordinates");
+
+                // translate user coordinates into SVG coordinates by scaling by horizontalSpacing and verticalSpacing
+                xStart = originX + xStart * horizontalSpacing;
+                xEnd = originX + xEnd * horizontalSpacing;
+
+                yStart = originY + yStart * verticalSpacing;
+                yEnd = originY + yEnd * verticalSpacing;
+
+                console.log(xStart, yStart, xEnd, yEnd, "translated coordinates");
+
+                return <LineWithArrows xStart={xStart} yStart={yStart} xEnd={xEnd} yEnd={yEnd} color="#CC6699" key={"curvedFunctionPart_" + xStart + "_" + yStart + "_" + xEnd + "_" + yEnd} />;
+            })}
+
+            {/* <LineWithArrows xStart={0} yStart={0} xEnd={origin[0]} yEnd={origin[1]} color="#CC6699" />; */}
+
+            {/* <LineWithArrows xStart={50} yStart={20} xEnd={300} yEnd={350} color="#CC6699" />;
             <LineWithArrows xStart={650} yStart={200} xEnd={40} yEnd={100} color="#CC6699" />;
             <LineWithArrows xStart={700} yStart={400} xEnd={700} yEnd={60} color="#CC6699" />;
-            <LineWithArrows xStart={500} yStart={150} xEnd={40} yEnd={150} color="#CC6699" />;
+            <LineWithArrows xStart={500} yStart={150} xEnd={40} yEnd={150} color="#CC6699" />; */}
         </svg>
     )
 }
