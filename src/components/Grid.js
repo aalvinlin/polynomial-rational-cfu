@@ -1,6 +1,6 @@
 import React from "react";
 
-const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding, verticalPadding, verticalAsymptotes, horizontalOrObliqueAsymptote, curvedFunctionParts}) => {
+const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding, verticalPadding, verticalAsymptotes, horizontalOrObliqueAsymptote, zeroes, holes, curvedFunctionParts}) => {
 
     const gridLineColor = "#AADDEE";
     const axisColor = "#99CCDD";
@@ -132,6 +132,13 @@ const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding
             }
     }
 
+    const XIntercept = ({x}) => {
+
+        const horizontalOffset = originX + x * horizontalSpacing;
+
+        return <ellipse cx={horizontalOffset} cy={originY} rx="10" ry="10" fill={"#CC6699"} />
+    }
+
     return (
         <svg viewBox={`0 0 ${xMax} ${yMax}`}>
 
@@ -144,6 +151,8 @@ const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding
             {verticalAsymptotes.map(x => <VerticalAsymptote x={x} key={"verticalAsymptote_" + x} />)}
 
             <HorizontalOrObliqueAsymptote equation={horizontalOrObliqueAsymptote} />
+
+            {zeroes.map(x => <XIntercept x={x} key={"xIntercept_" + x} />)}
 
             {curvedFunctionParts.map(partData => {
                 
