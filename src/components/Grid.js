@@ -33,13 +33,13 @@ const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding
         return <Line xStart={x} yStart={verticalPadding} xEnd={x} yEnd={verticalLineEnd} color={gridLineColor} width={2} />;
     }
 
-    const Line = ({xStart, yStart, xEnd, yEnd, color, width=5}) => {
+    const Line = ({xStart, yStart, xEnd, yEnd, color, width=5, strokeDasharray=null}) => {
         return (
-            <path d={`M ${xStart},${yStart} L ${xEnd},${yEnd}`} fill="none" stroke={color} strokeWidth={width} key={"line_" + xStart + "," + yStart + "_" + xEnd + "," + yEnd} />
+            <path d={`M ${xStart},${yStart} L ${xEnd},${yEnd}`} fill="none" stroke={color} strokeWidth={width} strokeDasharray={strokeDasharray} key={"line_" + xStart + "," + yStart + "_" + xEnd + "," + yEnd} />
         );
     }
 
-    const LineWithArrows = ({xStart, yStart, xEnd, yEnd, color, width=5}) => {
+    const LineWithArrows = ({xStart, yStart, xEnd, yEnd, color, width=5, strokeDasharray=null}) => {
 
         const slope = (yEnd - yStart) / (xEnd - xStart);
         const angle = Math.atan(slope);
@@ -81,7 +81,7 @@ const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding
         return (
             <>
                 <polygon points={`${leftArrowTipX},${leftArrowTipY} ${leftArrowBaseAngle1X},${leftArrowBaseAngle1Y} ${leftArrowBaseAngle2X},${leftArrowBaseAngle2Y}`} fill={color} />
-                <Line xStart={xStart} yStart={yStart} xEnd={xEnd} yEnd={yEnd} color={color} width={width} />;
+                <Line xStart={xStart} yStart={yStart} xEnd={xEnd} yEnd={yEnd} color={color} width={width} strokeDasharray={strokeDasharray} />;
                 <polygon points={`${rightArrowTipX},${rightArrowTipY} ${rightArrowBaseAngle1X},${rightArrowBaseAngle1Y} ${rightArrowBaseAngle2X},${rightArrowBaseAngle2Y}`} fill={color} />
             </>
         );
@@ -101,8 +101,13 @@ const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding
         return <LineWithArrows xStart={horizontalOffset} yStart={verticalPadding} xEnd={horizontalOffset} yEnd={verticalLineEnd} color={axisColor} width={5} />;
     }
 
-    // convert from grid coordinates to actual SVG coordinates!
+    const VerticalAsymptote = ({x}) => {
 
+        const horizontalOffset = originX + x * horizontalSpacing;
+
+        return <LineWithArrows xStart={horizontalOffset} yStart={verticalPadding} xEnd={horizontalOffset} yEnd={verticalLineEnd} color={"#999999"} strokeDasharray={"20, 10"} width={7} />;
+    }
+    
     return (
         <svg viewBox={`0 0 ${xMax} ${yMax}`}>
 
@@ -112,12 +117,12 @@ const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding
             <XAxis />
             <YAxis />
 
+            {verticalAsymptotes.map(x => <VerticalAsymptote x={x} />)}
+
             {curvedFunctionParts.map(partData => {
                 
                 // user-specified coordinates
                 let [xStart, yStart, xEnd, yEnd] = partData;
-
-                console.log(xStart, yStart, xEnd, yEnd, "user coordinates");
 
                 // translate user coordinates into SVG coordinates by scaling by horizontalSpacing and verticalSpacing
                 xStart = originX + xStart * horizontalSpacing;
@@ -126,17 +131,9 @@ const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding
                 yStart = originY + yStart * verticalSpacing;
                 yEnd = originY + yEnd * verticalSpacing;
 
-                console.log(xStart, yStart, xEnd, yEnd, "translated coordinates");
-
                 return <LineWithArrows xStart={xStart} yStart={yStart} xEnd={xEnd} yEnd={yEnd} color="#CC6699" key={"curvedFunctionPart_" + xStart + "_" + yStart + "_" + xEnd + "_" + yEnd} />;
             })}
 
-            {/* <LineWithArrows xStart={0} yStart={0} xEnd={origin[0]} yEnd={origin[1]} color="#CC6699" />; */}
-
-            {/* <LineWithArrows xStart={50} yStart={20} xEnd={300} yEnd={350} color="#CC6699" />;
-            <LineWithArrows xStart={650} yStart={200} xEnd={40} yEnd={100} color="#CC6699" />;
-            <LineWithArrows xStart={700} yStart={400} xEnd={700} yEnd={60} color="#CC6699" />;
-            <LineWithArrows xStart={500} yStart={150} xEnd={40} yEnd={150} color="#CC6699" />; */}
         </svg>
     )
 }

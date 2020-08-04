@@ -4,7 +4,7 @@ import Grid from "./components/Grid";
 
 const App = () => {
 
-  let verticalAsymptotes = [];
+  let verticalAsymptotes = [-5, 0, 1, 4];
   let horizontalAsymptotes = [];
   let obliqueAsymptotes = [];
   
