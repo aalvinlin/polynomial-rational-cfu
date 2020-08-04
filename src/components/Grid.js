@@ -1,6 +1,6 @@
 import React from "react";
 
-const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding, verticalPadding, verticalAsymptotes, horizontalAsymptotes, obliqueAsymptotes, curvedFunctionParts}) => {
+const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding, verticalPadding, verticalAsymptotes, horizontalOrObliqueAsymptote, curvedFunctionParts}) => {
 
     const gridLineColor = "#AADDEE";
     const axisColor = "#99CCDD";
@@ -108,6 +108,25 @@ const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding
         return <LineWithArrows xStart={horizontalOffset} yStart={verticalPadding} xEnd={horizontalOffset} yEnd={verticalLineEnd} color={"#999999"} strokeDasharray={"20, 10"} width={7} />;
     }
     
+    const HorizontalOrObliqueAsymptote = ({equation}) => {
+
+        let [slope, yIntercept] = equation;
+
+        // horizontal asymptote
+        if (slope === 0)
+            {
+                const verticalOffset = originY - yIntercept * verticalSpacing;
+
+                return <LineWithArrows xStart={horizontalPadding} yStart={verticalOffset} xEnd={horizontalLineEnd} yEnd={verticalOffset} color={"#999999"} strokeDasharray={"20, 10"} width={7} />;
+            }
+        
+        // oblique asymptote
+        else
+            {
+                return null;
+            }
+    }
+
     return (
         <svg viewBox={`0 0 ${xMax} ${yMax}`}>
 
@@ -118,6 +137,8 @@ const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding
             <YAxis />
 
             {verticalAsymptotes.map(x => <VerticalAsymptote x={x} />)}
+
+            <HorizontalOrObliqueAsymptote equation={horizontalOrObliqueAsymptote} />
 
             {curvedFunctionParts.map(partData => {
                 
