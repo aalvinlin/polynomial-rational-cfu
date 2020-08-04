@@ -21,10 +21,13 @@ const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding
     const originX = horizontalPadding + (totalHorizontalGridLines - 1) / 2 * horizontalSpacing;
     const originY = verticalPadding + (totalVerticalGridLines - 1) / 2 * verticalSpacing;
 
-    console.log(origin);
+    // smallest and largest x- and y-values that the user can see on the graph
+    const xMaxValue = Math.floor((totalVerticalGridLines - 1) / 2);
+    const xMinValue = -xMaxValue;
 
-
-
+    const yMaxValue = Math.floor((totalHorizontalGridLines - 1) / 2);
+    const yMinValue = -yMaxValue;
+    
     const HorizontalGridLine = ({y}) => {
         return <Line xStart={horizontalPadding} yStart={y} xEnd={horizontalLineEnd} yEnd={y} color={gridLineColor} width={2} />;
     }
@@ -128,7 +131,30 @@ const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding
         // oblique asymptote
         else
             {
-                return null;
+                let xStart, xEnd, yStart, yEnd;
+
+                // use y=mx for now, ignoring the y-intercept
+
+                // line will reach edges of graph on the left and right sides
+                if (Math.abs(slope) < 1)
+                    {
+                        xStart = horizontalPadding;
+                        xEnd = horizontalLineEnd;
+
+                        yStart = originY - xMinValue * slope * verticalSpacing;
+                        yEnd = originY - xMaxValue * slope * verticalSpacing;
+                    }
+                // line will reach edges of graph on the top and bottom sides
+                else
+                    {
+                        yStart = verticalPadding;
+                        yEnd = verticalLineEnd;
+
+                        xStart = originX + (yMaxValue / slope) * horizontalSpacing;
+                        xEnd = originX + (yMinValue / slope) * horizontalSpacing;
+                    }
+                
+                return <AsymptoteLine xStart={xStart} yStart={yStart} xEnd={xEnd} yEnd={yEnd} color={"#999999"} strokeDasharray={"20, 10"} width={7} />;
             }
     }
 
