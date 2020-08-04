@@ -136,7 +136,7 @@ const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding
             <XAxis />
             <YAxis />
 
-            {verticalAsymptotes.map(x => <VerticalAsymptote x={x} />)}
+            {verticalAsymptotes.map(x => <VerticalAsymptote x={x} key={"verticalAsymptote_" + x} />)}
 
             <HorizontalOrObliqueAsymptote equation={horizontalOrObliqueAsymptote} />
 
