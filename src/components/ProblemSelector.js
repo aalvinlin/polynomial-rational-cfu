@@ -3,7 +3,7 @@ import React from "react";
 const ProblemSelector = () => {
 
   return (
-    <>
+    <div className="problemSelector">
       <p>Choose an equation type to practice:</p>
 
       <p>Polynomial</p>
@@ -21,7 +21,7 @@ const ProblemSelector = () => {
 
       <p>Holes</p>
 
-    </>
+    </div>
   );
 }
 
