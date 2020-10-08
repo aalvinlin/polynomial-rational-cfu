@@ -1,6 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ProblemSelector = () => {
+
+  const problemSettings = useState({
+    type: null,
+    polynomialOptions: {
+      factored: true
+    },
+    rationalOptions: {
+      verticalAsymptotes: true,
+      EndBehaviorAsymptoteType: "horizontal",
+      holes: false,
+    },
+  })
 
   return (
     <div className="problemSelector">
