@@ -4,22 +4,51 @@ const ProblemSelector = () => {
 
   return (
     <div className="problemSelector">
-      <p>Choose an equation type to practice:</p>
+      <h1>Choose an equation type</h1>
 
-      <p>Polynomial</p>
+      <div className="equationTypeButton">
+        <button>Polynomial</button>
+        <button>Rational Expression</button>
+      </div>
 
-      <p>Rational Expression</p>
+      <h2>Options</h2>
 
-      <p>Asymptote Type:</p>
+      <div className="polynomialOptionsContainer">
 
-      <ul>
-          <li>none</li>
-          <li>Horizontal</li>
-          <li>Vertical</li>
-          <li>Oblique</li>
-      </ul>
+        <div clasName="choiceRow">
+           <h3>Factored?</h3>
 
-      <p>Holes</p>
+           <button>Yes</button>
+           <button>No</button>
+        </div>
+
+      </div>
+
+      <div className="rationalOptionsContainer">
+
+        <div clasName="choiceRow">
+          <h3>Vertical Asymptotes?</h3>
+
+          <button>Yes</button>
+          <button>No</button>
+        </div>
+
+        <div clasName="choiceRow">
+          <h3>End Behavior Asymptotes</h3>
+
+          <button>None</button>
+          <button>Horizontal</button>
+          <button>Oblique</button>
+        </div>
+
+        <div clasName="choiceRow">
+          <h3>Holes?</h3>
+
+          <button>Yes</button>
+          <button>No</button>
+        </div>
+
+      </div>
 
     </div>
   );
