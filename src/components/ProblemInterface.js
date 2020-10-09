@@ -21,10 +21,10 @@ const ProblemInterface = ({equationData, problemSettings, setEquationData, setPr
         <Grid xMax={800} yMax={800} horizontalSpacing={40} verticalSpacing={40} horizontalPadding={25} verticalPadding={25} verticalAsymptotes={verticalAsymptotes} horizontalOrObliqueAsymptote={horizontalOrObliqueAsymptote} zeroes={zeroes} holes={holes} curvedFunctionParts={curvedFunctionParts} />
         <div className="inputs">
             <h2>Properties Displayed on Graph</h2>
-            <h3>Zeroes</h3>
-            <h3>Vertical Asymptotes</h3>
-            <h3>Horizontal Asymptotes</h3>
-            <h3>Oblique Asymptotes</h3>
+            <h3 className={selectedCatery === "zeroes" ? "selected" : ""}>Zeroes</h3>
+            <h3 className={selectedCatery === "verticalAsymptote" ? "selected" : ""}>Vertical Asymptotes</h3>
+            <h3 className={selectedCatery === "horizontalAsymptote" ? "selected" : ""}>Horizontal Asymptotes</h3>
+            <h3 className={selectedCatery === "obliqueAsymptote" ? "selected" : ""}>Oblique Asymptotes</h3>
         </div>
       </div>
     </>
