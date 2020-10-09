@@ -18,11 +18,11 @@ const ProblemInterface = ({equationData, problemSettings, setEquationData, setPr
   }
 
   const formatHorizontalAsymptote = (horizontalAsymptote) => {
-    return <span>x = {horizontalAsymptote}</span>;    
+    return <span>y = {horizontalAsymptote}</span>;    
   }
 
-  const formatHorizontalAsymptote = (obliqueAsymptote) => {
-    return <span>x = {obliqueAsymptote}</span>;
+  const formatObliqueAsymptote = (obliqueAsymptote) => {
+    return <span>y = {obliqueAsymptote}x</span>;
   }
 
   return (
