@@ -1,6 +1,7 @@
 import React, { useState }  from "react";
 
-import Grid from "./components/Grid";
+import ProblemInterface from "./components/ProblemInterface";
+import ProblemSelector from "./components/ProblemSelector";
 
 const App = () => {
 
@@ -16,8 +17,6 @@ const App = () => {
     
   });
 
-  const currentEquation = useState(null);
-
   const problemSettings = useState({
     type: null,
     polynomialOptions: {
@@ -30,18 +29,15 @@ const App = () => {
     },
   })
 
-  let verticalAsymptotes = [-5, 0, 4];
-  let horizontalOrObliqueAsymptote = [-2, 2];
-  let zeroes = [-2, 1];
-  let holes = [];
-  
-  let curvedFunctionParts = [[0, 0, 2, 5], [-3, 2, 4, -5]];
+  if (equationData.type)
+    {
+      return <ProblemInterface />;
+    }
+  else
+    {
+      return <ProblemSelector />;
+    }
 
-  return (
-    <>
-      <Grid xMax={800} yMax={800} horizontalSpacing={40} verticalSpacing={40} horizontalPadding={25} verticalPadding={25} verticalAsymptotes={verticalAsymptotes} horizontalOrObliqueAsymptote={horizontalOrObliqueAsymptote} zeroes={zeroes} holes={holes} curvedFunctionParts={curvedFunctionParts} />
-    </>
-  );
 }
 
 export default App;
