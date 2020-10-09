@@ -25,6 +25,7 @@ const ProblemInterface = ({equationData, problemSettings, setEquationData, setPr
             <h3 className={selectedCatery === "verticalAsymptote" ? "selected" : ""}>Vertical Asymptotes</h3>
             <h3 className={selectedCatery === "horizontalAsymptote" ? "selected" : ""}>Horizontal Asymptotes</h3>
             <h3 className={selectedCatery === "obliqueAsymptote" ? "selected" : ""}>Oblique Asymptotes</h3>
+            <h3 className={selectedCatery === "holes" ? "selected" : ""}>Holes</h3>
         </div>
       </div>
     </>
