@@ -5,7 +5,7 @@ import ProblemSelector from "./components/ProblemSelector";
 
 const App = () => {
 
-  const equationData = useState({
+  const [equationData, setEquationData] = useState({
     type: null,
     equation: null,
 
@@ -17,7 +17,7 @@ const App = () => {
     
   });
 
-  const problemSettings = useState({
+  const [problemSettings, setProblemSettings] = useState({
     type: null,
     polynomialOptions: {
       factored: true
