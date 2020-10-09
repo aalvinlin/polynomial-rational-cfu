@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProblemSelector = ({equationData, problemSettings}) => {
+const ProblemSelector = ({equationData, problemSettings, setEquationData, setProblemSettings}) => {
 
   return (
     <div className="problemSelector">
