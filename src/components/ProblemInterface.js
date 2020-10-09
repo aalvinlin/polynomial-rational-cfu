@@ -13,6 +13,18 @@ const ProblemInterface = ({equationData, problemSettings, setEquationData, setPr
 
   const [selectedCategory, setSelectedCategory] = useState(null);
 
+  const formatHorizontalAsymptote = (verticalAsymptote) => {
+    return <span>x = {verticalAsymptote}</span>;
+  }
+
+  const formatHorizontalAsymptote = (horizontalAsymptote) => {
+    return <span>x = {horizontalAsymptote}</span>;    
+  }
+
+  const formatHorizontalAsymptote = (obliqueAsymptote) => {
+    return <span>x = {obliqueAsymptote}</span>;
+  }
+
   return (
     <>
       <Equation equationData={equationData} />
