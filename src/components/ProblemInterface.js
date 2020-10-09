@@ -13,7 +13,7 @@ const ProblemInterface = ({equationData, problemSettings, setEquationData, setPr
 
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  const formatHorizontalAsymptote = (verticalAsymptote) => {
+  const formatVerticalAsymptote = (verticalAsymptote) => {
     return <span>x = {verticalAsymptote}</span>;
   }
 
