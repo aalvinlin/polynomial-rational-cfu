@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState }  from "react";
 
 import Grid from "./components/Grid";
 
 const App = () => {
+
+  const problemSettings = useState({
+    type: null,
+    polynomialOptions: {
+      factored: true
+    },
+    rationalOptions: {
+      verticalAsymptotes: true,
+      EndBehaviorAsymptoteType: "horizontal",
+      holes: false,
+    },
+  })
 
   let verticalAsymptotes = [-5, 0, 4];
   let horizontalOrObliqueAsymptote = [-2, 2];
