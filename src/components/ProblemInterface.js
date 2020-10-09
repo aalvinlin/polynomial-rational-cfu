@@ -2,7 +2,7 @@ import React from "react";
 import Equation from "./Equation";
 import Grid from "./Grid";
 
-const ProblemInterface = () => {
+const ProblemInterface = ({equationData, problemSettings}) => {
  
   let verticalAsymptotes = [-5, 0, 4];
   let horizontalOrObliqueAsymptote = [-2, 2];

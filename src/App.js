@@ -31,11 +31,11 @@ const App = () => {
 
   if (equationData.type)
     {
-      return <ProblemInterface />;
+      return <ProblemInterface equationData={equationData} problemSettings={problemSettings} />;
     }
   else
     {
-      return <ProblemSelector />;
+      return <ProblemSelector equationData={equationData} problemSettings={problemSettings} />;
     }
 
 }
