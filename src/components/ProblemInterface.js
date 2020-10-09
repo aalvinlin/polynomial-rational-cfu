@@ -16,10 +16,10 @@ const ProblemInterface = ({equationData, problemSettings, setEquationData, setPr
       <Equation />
 
       <div className="gridAndInputs">
-      <Grid xMax={800} yMax={800} horizontalSpacing={40} verticalSpacing={40} horizontalPadding={25} verticalPadding={25} verticalAsymptotes={verticalAsymptotes} horizontalOrObliqueAsymptote={horizontalOrObliqueAsymptote} zeroes={zeroes} holes={holes} curvedFunctionParts={curvedFunctionParts} />
-          <div className="inputs">
-              
-          </div>
+        <Grid xMax={800} yMax={800} horizontalSpacing={40} verticalSpacing={40} horizontalPadding={25} verticalPadding={25} verticalAsymptotes={verticalAsymptotes} horizontalOrObliqueAsymptote={horizontalOrObliqueAsymptote} zeroes={zeroes} holes={holes} curvedFunctionParts={curvedFunctionParts} />
+        <div className="inputs">
+            
+        </div>
       </div>
     </>
   );

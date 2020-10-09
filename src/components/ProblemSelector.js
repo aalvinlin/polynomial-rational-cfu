@@ -2,6 +2,10 @@ import React from "react";
 
 const ProblemSelector = ({equationData, problemSettings, setEquationData, setProblemSettings}) => {
 
+  const handleSubmit = () => {
+    setEquationData({...equationData, type: "polynomial"})
+  }
+
   return (
     <div className="problemSelector">
       <h1>Choose an equation type</h1>
@@ -49,6 +53,8 @@ const ProblemSelector = ({equationData, problemSettings, setEquationData, setPro
         </div>
 
       </div>
+
+      <button onClick={handleSubmit}>Create Problem</button>
 
     </div>
   );
