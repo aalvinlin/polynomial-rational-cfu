@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Equation from "./Equation";
 import Grid from "./Grid";
 
@@ -10,6 +10,8 @@ const ProblemInterface = ({equationData, problemSettings, setEquationData, setPr
   let holes = [];
   
   let curvedFunctionParts = [[0, 0, 2, 5], [-3, 2, 4, -5]];
+
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   return (
     <>
