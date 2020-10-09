@@ -4,6 +4,20 @@ import Grid from "./components/Grid";
 
 const App = () => {
 
+  const equationData = useState({
+    type: null,
+    equation: null,
+
+    zeroes: {},
+    verticalAsymptotes: [],
+    holes: [],
+    horizontalAsymptote: null,
+    obliqueAsymptote: null,
+    
+  });
+
+  const currentEquation = useState(null);
+
   const problemSettings = useState({
     type: null,
     polynomialOptions: {
