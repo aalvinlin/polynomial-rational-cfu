@@ -1,6 +1,6 @@
 import React from "react";
 
-const Equation = () => {
+const Equation = ({equationData}) => {
 
   return (
     <>
