@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ProblemSelector = ({equationData, problemSettings, setEquationData, setProblemSettings}) => {
 
+  const [userSettings, setUserSettings] = useState({...problemSettings});
+
   const handleSubmit = () => {
-    setEquationData({...equationData, type: "polynomial"})
+    setEquationData({...equationData, type: "polynomial"});
+    setProblemSettings({...problemSettings, ...userSettings});
   }
 
   return (
