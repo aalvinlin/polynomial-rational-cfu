@@ -30,7 +30,7 @@ const ProblemInterface = ({equationData, problemSettings, setEquationData, setPr
       <Equation equationData={equationData} />
 
       <div className="gridAndInputs">
-        <Grid xMax={800} yMax={800} horizontalSpacing={40} verticalSpacing={40} horizontalPadding={25} verticalPadding={25} verticalAsymptotes={verticalAsymptotes} horizontalOrObliqueAsymptote={horizontalOrObliqueAsymptote} zeroes={zeroes} holes={holes} curvedFunctionParts={curvedFunctionParts} />
+        <Grid xMax={800} yMax={800} horizontalSpacing={40} verticalSpacing={40} horizontalPadding={25} verticalPadding={25} equationData={equationData} />
         <div className="inputs">
             <h2>Properties Displayed on Graph</h2>
             

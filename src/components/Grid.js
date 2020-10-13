@@ -1,6 +1,8 @@
 import React from "react";
 
-const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding, verticalPadding, verticalAsymptotes, horizontalOrObliqueAsymptote, zeroes, holes, curvedFunctionParts}) => {
+const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding, verticalPadding, equationData }) => {
+
+    let {verticalAsymptotes, horizontalOrObliqueAsymptote, zeroes, holes, curvedFunctionParts} = equationData;
 
     const gridLineColor = "#AADDEE";
     const axisColor = "#99CCDD";
