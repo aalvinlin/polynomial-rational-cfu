@@ -3,6 +3,8 @@ import React, { useState }  from "react";
 import ProblemInterface from "./components/ProblemInterface";
 import ProblemSelector from "./components/ProblemSelector";
 
+import "./App.css";
+
 const App = () => {
 
   const [equationData, setEquationData] = useState({
