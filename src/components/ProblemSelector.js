@@ -22,7 +22,7 @@ const ProblemSelector = ({equationData, problemSettings, setEquationData, setPro
 
       <div className="polynomialOptionsContainer">
 
-        <div clasName="choiceRow">
+        <div className="choiceRow">
            <h3>Factored?</h3>
 
            <button>Yes</button>
@@ -33,14 +33,14 @@ const ProblemSelector = ({equationData, problemSettings, setEquationData, setPro
 
       <div className="rationalOptionsContainer">
 
-        <div clasName="choiceRow">
+        <div className="choiceRow">
           <h3>Vertical Asymptotes?</h3>
 
           <button>Yes</button>
           <button>No</button>
         </div>
 
-        <div clasName="choiceRow">
+        <div className="choiceRow">
           <h3>End Behavior Asymptotes</h3>
 
           <button>None</button>
@@ -48,7 +48,7 @@ const ProblemSelector = ({equationData, problemSettings, setEquationData, setPro
           <button>Oblique</button>
         </div>
 
-        <div clasName="choiceRow">
+        <div className="choiceRow">
           <h3>Holes?</h3>
 
           <button>Yes</button>
