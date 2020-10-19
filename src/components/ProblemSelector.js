@@ -14,8 +14,8 @@ const ProblemSelector = ({equationData, problemSettings, setEquationData, setPro
       <h1>Choose an equation type</h1>
 
       <div className="equationTypeButton">
-        <button>Polynomial</button>
-        <button>Rational Expression</button>
+        <button className={ userSettings.type === "polynomial" ? "selected" : ""}>Polynomial</button>
+        <button className={ userSettings.type === "rational" ? "selected" : ""}>Rational Expression</button>
       </div>
 
       <h2>Options</h2>
@@ -25,8 +25,8 @@ const ProblemSelector = ({equationData, problemSettings, setEquationData, setPro
         <div className="choiceRow">
            <h3>Factored?</h3>
 
-           <button>Yes</button>
-           <button>No</button>
+           <button className={ userSettings.polynomialOptions.factored ? "selected" :  ""}>Yes</button>
+           <button className={ !userSettings.polynomialOptions.factored ? "selected" :  ""}>No</button>
         </div>
 
       </div>
@@ -36,23 +36,23 @@ const ProblemSelector = ({equationData, problemSettings, setEquationData, setPro
         <div className="choiceRow">
           <h3>Vertical Asymptotes?</h3>
 
-          <button>Yes</button>
-          <button>No</button>
+          <button className={ userSettings.rationalOptions.verticalAsymptotes ? "selected" :  ""}>Yes</button>
+          <button className={ userSettings.rationalOptions.verticalAsymptotes ? "selected" :  ""}>No</button>
         </div>
 
         <div className="choiceRow">
           <h3>End Behavior Asymptotes</h3>
 
-          <button>None</button>
-          <button>Horizontal</button>
-          <button>Oblique</button>
+          <button className={ userSettings.rationalOptions.EndBehaviorAsymptoteType === "none" ? "selected" :  ""}>None</button>
+          <button className={ userSettings.rationalOptions.EndBehaviorAsymptoteType === "horizontal" ? "selected" :  ""}>Horizontal</button>
+          <button className={ userSettings.rationalOptions.EndBehaviorAsymptoteType === "oblique" ? "selected" :  ""}>Oblique</button>
         </div>
 
         <div className="choiceRow">
           <h3>Holes?</h3>
 
-          <button>Yes</button>
-          <button>No</button>
+          <button className={ userSettings.rationalOptions.holes ? "selected" :  ""}>Yes</button>
+          <button className={ !userSettings.rationalOptions.holes ? "selected" :  ""}>No</button>
         </div>
 
       </div>
