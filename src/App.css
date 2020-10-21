@@ -1,0 +1,34 @@
+* {
+    font-family: Arial;
+}
+
+h1, h2, h3, h4 {
+    text-align: center;
+}
+
+body {
+    background-color: #DDDDDD;
+}
+
+div button {
+    display: inline-block;
+
+    line-height: 2rem;
+    margin: 1rem;
+}
+
+.problemSelector {
+
+    width: 90vh;
+    margin: 0 auto;
+
+    background-color: #CCCCCC;
+}
+
+.polynomialOptionsContainer, .rationalOptionsContainer {
+
+    width: 90%;
+    margin: 0 auto;
+
+    background-color: #DDDDDD;
+}
