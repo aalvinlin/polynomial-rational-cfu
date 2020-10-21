@@ -3,6 +3,7 @@ import React, { useState }  from "react";
 import ProblemInterface from "./components/ProblemInterface";
 import ProblemSelector from "./components/ProblemSelector";
 
+import "./normalize.css";
 import "./App.css";
 
 const App = () => {
