@@ -26,7 +26,7 @@ const ProblemSelector = ({equationData, problemSettings, setEquationData, setPro
         <div className="choiceRow">
            <h3>Factored?</h3>
 
-           <YesNoSlider selectedOption={YesNoSlider} />
+           <YesNoSlider selectedOption={userSettings.polynomialOptions.factored} />
 
         </div>
 
@@ -37,8 +37,8 @@ const ProblemSelector = ({equationData, problemSettings, setEquationData, setPro
         <div className="choiceRow">
           <h3>Vertical Asymptotes?</h3>
 
-          <button className={ userSettings.rationalOptions.verticalAsymptotes ? "selected" : "" }>Yes</button>
-          <button className={ userSettings.rationalOptions.verticalAsymptotes ? "selected" : "" }>No</button>
+          <YesNoSlider selectedOption={userSettings.rationalOptions.verticalAsymptotes} />
+
         </div>
 
         <div className="choiceRow">
@@ -52,8 +52,8 @@ const ProblemSelector = ({equationData, problemSettings, setEquationData, setPro
         <div className="choiceRow">
           <h3>Holes?</h3>
 
-          <button className={ userSettings.rationalOptions.holes ? "selected" : "" }>Yes</button>
-          <button className={ !userSettings.rationalOptions.holes ? "selected" : "" }>No</button>
+          <YesNoSlider selectedOption={userSettings.rationalOptions.holes} />
+
         </div>
 
       </div>
