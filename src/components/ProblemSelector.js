@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import YesNoSlider from "./YesNoSlider";
 
 const ProblemSelector = ({equationData, problemSettings, setEquationData, setProblemSettings}) => {
 
@@ -25,8 +26,8 @@ const ProblemSelector = ({equationData, problemSettings, setEquationData, setPro
         <div className="choiceRow">
            <h3>Factored?</h3>
 
-           <button className={ userSettings.polynomialOptions.factored ? "selected" : "" }>Yes</button>
-           <button className={ !userSettings.polynomialOptions.factored ? "selected" : "" }>No</button>
+           <YesNoSlider selectedOption={YesNoSlider} />
+
         </div>
 
       </div>
