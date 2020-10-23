@@ -32,3 +32,8 @@ div button {
 
     background-color: #DDDDDD;
 }
+
+.yesNoSlider {
+    display: flex;
+    justify-content: center;
+}

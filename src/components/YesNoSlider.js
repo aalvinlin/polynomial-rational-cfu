@@ -3,7 +3,7 @@ import React from "react";
 const YesNoSlider = ({selectedOption}) => {
 
     return (
-        <div className="YesNoSlider">
+        <div className="yesNoSlider">
 
            <button className={ selectedOption ? "selected" : "" }>Yes</button>
            <button className={ !selectedOption ? "selected" : "" }>No</button>
