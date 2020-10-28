@@ -10,6 +10,23 @@ const ProblemSelector = ({equationData, problemSettings, setEquationData, setPro
     setProblemSettings({...problemSettings, ...userSettings});
   }
 
+  const generateProblem = () => {
+
+    const totalZeroes = Math.floor(Math.random() * 5);
+
+    const rangeOfPossibleZeroes = [-10, 10];
+    let possibleZeroes = [];
+
+    for (let i = rangeOfPossibleZeroes[0]; i < rangeOfPossibleZeroes[1]; i += 1)
+      { possibleZeroes.push(i); }
+
+    let zeroes = [];
+
+    for (i = 0; i < totalZeroes; i += 1)
+      { zeroes.push(possibleZeroes[Math.floor(Math.random() * possibleZeroes.length)]); }
+
+  }
+
   return (
     <div className="problemSelector">
       <h1>Choose an equation type</h1>
