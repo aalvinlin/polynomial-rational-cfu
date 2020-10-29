@@ -34,27 +34,27 @@ const ProblemInterface = ({equationData, problemSettings, setEquationData, setPr
         <div className="inputs">
             <h2>Properties Displayed on Graph</h2>
             
-            <h3 className={selectedCatery === "zeroes" ? "selected" : ""}>Zeroes</h3>
+            <h3 className={selectedCategory === "zeroes" ? "selected" : ""}>Zeroes</h3>
               <div>
                 {equationData.zeroes.map(zero => zero)}
               </div>
 
-            <h3 className={selectedCatery === "verticalAsymptote" ? "selected" : ""}>Vertical Asymptotes</h3>
+            <h3 className={selectedCategory === "verticalAsymptote" ? "selected" : ""}>Vertical Asymptotes</h3>
               <div>
                 {equationData.verticalAsymptotes.map(verticalAsymptote => formatVerticalAsymptote(verticalAsymptote))}
               </div>
 
-            <h3 className={selectedCatery === "horizontalAsymptote" ? "selected" : ""}>Horizontal Asymptotes</h3>
+            <h3 className={selectedCategory === "horizontalAsymptote" ? "selected" : ""}>Horizontal Asymptotes</h3>
               <div>
                 {formatHorizontalAsymptote(equationData.horizontalAsymptote)}
               </div>
               
-            <h3 className={selectedCatery === "obliqueAsymptote" ? "selected" : ""}>Oblique Asymptotes</h3>
+            <h3 className={selectedCategory === "obliqueAsymptote" ? "selected" : ""}>Oblique Asymptotes</h3>
               <div>
                 {formatObliqueAsymptote(equationData.obliqueAsymptote)}
               </div>
               
-            <h3 className={selectedCatery === "holes" ? "selected" : ""}>Holes</h3>
+            <h3 className={selectedCategory === "holes" ? "selected" : ""}>Holes</h3>
               <div>
                 {equationData.holes.map(hole => hole)}
               </div>
