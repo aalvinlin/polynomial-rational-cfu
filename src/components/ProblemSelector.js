@@ -20,10 +20,19 @@ const ProblemSelector = ({equationData, problemSettings, setEquationData, setPro
     for (let i = rangeOfPossibleZeroes[0]; i < rangeOfPossibleZeroes[1]; i += 1)
       { possibleZeroes.push(i); }
 
-    let zeroes = [];
+    // hold both the zero and its multiplicity
+    let zeroes = {};
 
     for (i = 0; i < totalZeroes; i += 1)
-      { zeroes.push(possibleZeroes[Math.floor(Math.random() * possibleZeroes.length)]); }
+      {
+        let newZero = possibleZeroes[Math.floor(Math.random() * possibleZeroes.length)];
+
+        if (zeroes[newZero])
+          { zeroes[newZero] += 1; }
+        else
+        { zeroes[newZero] = 1; }
+
+      }
 
   }
 
