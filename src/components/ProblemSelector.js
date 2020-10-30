@@ -6,7 +6,7 @@ const ProblemSelector = ({equationData, problemSettings, setEquationData, setPro
   const [userSettings, setUserSettings] = useState({...problemSettings});
 
   const handleSubmit = () => {
-    setEquationData({...equationData, type: "polynomial"});
+    setEquationData({...equationData, type: "polynomial", zeroes: generateProblem() });
     setProblemSettings({...problemSettings, ...userSettings});
   }
 
@@ -23,16 +23,18 @@ const ProblemSelector = ({equationData, problemSettings, setEquationData, setPro
     // hold both the zero and its multiplicity
     let zeroes = {};
 
-    for (i = 0; i < totalZeroes; i += 1)
+    for (let i = 0; i < totalZeroes; i += 1)
       {
         let newZero = possibleZeroes[Math.floor(Math.random() * possibleZeroes.length)];
 
         if (zeroes[newZero])
           { zeroes[newZero] += 1; }
         else
-        { zeroes[newZero] = 1; }
+          { zeroes[newZero] = 1; }
 
       }
+  
+    return zeroes;
 
   }
 

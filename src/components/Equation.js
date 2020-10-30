@@ -4,14 +4,21 @@ const Equation = ({equationData}) => {
 
   function formatEquation(equation) {
 
-    return equation.map((coefficient, id) => {
+    // return equation.map((coefficient, id) => {
 
-      let power = 0;
+    //   let power = 0;
 
-      return (coefficient + "x")
+    //   return (coefficient + "x")
 
-    });
+    // });
   }
+
+  if (!equationData)
+    {
+      return (
+        <>Loading...</>
+      )
+    }
 
   return (
     <div className="equation">

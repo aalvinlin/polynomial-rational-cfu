@@ -2,7 +2,7 @@ import React from "react";
 
 const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding, verticalPadding, equationData }) => {
 
-    let {verticalAsymptotes, horizontalOrObliqueAsymptote, zeroes, holes, curvedFunctionParts} = equationData;
+    let {verticalAsymptotes, horizontalOrObliqueAsymptote, zeroes = {}, holes, curvedFunctionParts} = equationData;
 
     const gridLineColor = "#AADDEE";
     const axisColor = "#99CCDD";
@@ -180,7 +180,7 @@ const Grid = ({xMax, yMax, horizontalSpacing, verticalSpacing, horizontalPadding
 
             <HorizontalOrObliqueAsymptote equation={horizontalOrObliqueAsymptote} />
 
-            {zeroes.map(x => <XIntercept x={x} key={"xIntercept_" + x} />)}
+            {Object.keys(zeroes).map(x => <XIntercept x={x} key={"xIntercept_" + x} />)}
 
             {curvedFunctionParts.map(partData => {
                 

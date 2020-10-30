@@ -25,6 +25,13 @@ const ProblemInterface = ({equationData, problemSettings, setEquationData, setPr
     return <span>y = {obliqueAsymptote}x</span>;
   }
 
+  if (!equationData)
+    {
+      return (
+        <>Loading...</>
+      )
+    }
+
   return (
     <>
       <Equation equationData={equationData} />
@@ -36,7 +43,7 @@ const ProblemInterface = ({equationData, problemSettings, setEquationData, setPr
             
             <h3 className={selectedCategory === "zeroes" ? "selected" : ""}>Zeroes</h3>
               <div>
-                {equationData.zeroes.map(zero => zero)}
+                {Object.entries(equationData.zeroes).map((zero, multiplicity) => zero)}
               </div>
 
             <h3 className={selectedCategory === "verticalAsymptote" ? "selected" : ""}>Vertical Asymptotes</h3>
