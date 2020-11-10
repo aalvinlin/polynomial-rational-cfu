@@ -7,3 +7,5 @@ This application allows users to test their understanding of the relationship be
 ## Usage
 
 Users will be given a polynomial or rational equation (randomly-generated according to user settings), and they will click on areas on a 2D grid to plot zeroes, asymptotes, and the locations of functions.
+
+After users plotting their graph, they can verify whether they graphed the equation correctly.
