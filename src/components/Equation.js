@@ -4,13 +4,22 @@ const Equation = ({equationData}) => {
 
   function formatEquation(equation) {
 
-    // return equation.map((coefficient, id) => {
+    let equationString = "";
 
-    //   let power = 0;
+    for (let i = 0; i < equationData.length; i += 1)
+      {
+        let currentRoot = equationData[i];
 
-    //   return (coefficient + "x")
+        if (currentRoot === 0)
+          { equationString += "x"; }
+        if (currentRoot < 0)
+          { equationString += "(x + " + Math.abs(currentRoot) + ")"; }
+        else
+        { equationString += "(x - " + currentRoot + ")"; }
+        
+      }
 
-    // });
+    return equationString;
   }
 
   if (!equationData)
