@@ -20,4 +20,6 @@ For rational equations, users can choose whether the equation has the following:
  * vertical asymptotes
  * horizontal asymptotes
  * oblique asymptotes
- * holes
+
+# Features for Future Release
+ * specify holes in the graph for both polynomial and rational equations
