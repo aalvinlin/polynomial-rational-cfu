@@ -13,7 +13,7 @@ After users plotting their graph, they can verify whether they graphed the equat
 # Equation Generation Options
 
 Users can choose between the two equation types:
- * Polynomail equations
+ * Polynomial equations
  * Rational equations
 
 For rational equations, users can choose whether the equation has the following:
